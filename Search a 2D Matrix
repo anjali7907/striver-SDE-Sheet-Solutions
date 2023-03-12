@@ -1,0 +1,25 @@
+class Solution {
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        int lo=0;
+        int hi,mid;
+        int m,n;
+        m=matrix.size();
+        n=matrix[0].size();
+        hi=(m*n)-1;
+        
+        while(lo<=hi){
+            mid= (lo+hi)/2;
+            if(matrix[mid/n][mid%n]==target){
+                return true;
+            }
+            else if(matrix[mid/n][mid%n]<target){
+                lo=mid+1;
+            }
+            else{
+                hi=mid-1;
+            }
+        }
+        return false;
+    }
+};
